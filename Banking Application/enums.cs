@@ -23,9 +23,6 @@ namespace Banking_Application
         Line_of_credit
     }
 
-    /*abstract interface ITransaction
-    {
-        
-    }*/
+    
 
 }
