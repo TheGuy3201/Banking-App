@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
+    //Likely for future exceptions
     enum ExceptionType {
         ACCOUNT_DOES_NOT_EXIST,
         CREDIT_LIMIT_HAS_BEEN_EXCEEDED,
