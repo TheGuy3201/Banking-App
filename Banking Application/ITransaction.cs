@@ -8,7 +8,7 @@ namespace Banking_Application
 {
     internal interface ITransaction
     {
-        void Withdraw(double amount)
+        /*void Withdraw(double amount)
         {
 
         }
@@ -16,6 +16,6 @@ namespace Banking_Application
         void Deposit(double amount)
         {
 
-        }
+        }*/
     }
 }
