@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountException.cs" />
+    <Compile Include="DayTime.cs" />
     <Compile Include="enums.cs" />
     <Compile Include="ITransaction.cs" />
     <Compile Include="LoginEventArgs.cs" />
