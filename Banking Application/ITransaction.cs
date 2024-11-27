@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
+    class Person //Delete this when the Person class is Initialized 
+    {
+        public Person() {}
+    }
     internal interface ITransaction
     {
         void Withdraw(decimal amount, Person person)
