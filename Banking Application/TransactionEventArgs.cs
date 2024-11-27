@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    internal class TransactionEventArgs
+    /*class TransactionEventArgs : LoginEventArgs
     {
-    }
+        public double
+    }*/
 }

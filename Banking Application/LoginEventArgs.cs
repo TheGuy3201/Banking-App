@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    internal class LoginEventArgs
+    class LoginEventArgs : EventArgs
     {
+        //Properties
+        public string PersonName { get; }
+        public bool Success { get; }
+
+        //Methods
+        public LoginEventArgs(string personName, bool success) : base()
+        {
+            PersonName = personName;
+            Success = success;
+        }
     }
 }

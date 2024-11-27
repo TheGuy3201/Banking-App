@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    internal class AccountException
+    class AccountException : Exception
     {
+        public AccountException(ExceptionType reason) : base(reason.ToString())
+        { }
     }
 }
