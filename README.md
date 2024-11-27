@@ -1,6 +1,6 @@
 Banking Application Project/Members
 
-<br/>Eyal Balilty 301388833
-<br/>Ragulan Chandrasegaran 301349308
-<br/>Joshua Desroches 301350618
-<br/>Josh Thomas
+<br/>Eyal Balilty 301388833 - Account, CheckingAccount, VisaAccount, SavingsAccount
+<br/>Ragulan Chandrasegaran 301349308 - ITransaction, Daytime, Utils
+<br/>Joshua Desroches 301350618 - AccountException, LoginEventArgs, TransactionEventArgs, Transaction
+<br/>Josh Thomas - Person, Bank, Logger
