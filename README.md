@@ -1,6 +1,6 @@
 Banking Application Project/Members
 
-Eyal Balilty
-Ragulan Chandrasegaran
-Joshua Desroches
-Josh Thomas
+<br/>Eyal Balilty
+<br/>Ragulan Chandrasegaran
+<br/>Joshua Desroches
+<br/>Josh Thomas
