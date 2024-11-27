@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    
     struct Transaction
     {
         public string AccountNumber { get; }
