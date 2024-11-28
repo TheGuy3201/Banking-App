@@ -19,6 +19,16 @@ namespace Banking_Application
         {
             Name = name;
             Sin = sin;
+            password = sin.Substring(0,2);
+        }
+
+        public void Login(string pass)
+        {
+            if(pass != password)
+            {
+                IsAuthenticated = false;
+                //this.OnLogin();
+            }
         }
     }
 }
