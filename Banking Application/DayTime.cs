@@ -21,10 +21,13 @@ namespace Banking_Application
 
             long years = minutes / minutes_in_year;
             long remaining = minutes % minutes_in_year;
+
             long months = remaining / minutes_in_month;
             remaining %= minutes_in_month;
+
             long days = remaining / minutes_in_day;
             remaining %= minutes_in_day;
+
             long hours = remaining / minutes_in_hour;
             long mins = remaining % minutes_in_hour;
 
