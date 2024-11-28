@@ -9,11 +9,11 @@ namespace Banking_Application
     struct Transaction
     {
         public string AccountNumber { get; }
-        public double Amount { get; }
+        public decimal Amount { get; }
         public Person Originator { get; }
         public DayTime Time { get; }
 
-        public Transaction(string accountNumber, double amount, Person person, DayTime time)
+        public Transaction(string accountNumber, decimal amount, Person person, DayTime time)
         {
             AccountNumber = accountNumber;
             Amount = amount;
