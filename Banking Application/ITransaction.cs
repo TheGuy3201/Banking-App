@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Banking_Application
 {
     
-    internal interface ITransaction
+    internal interface ITransaction //if I make a class its different
     {
         void Withdraw(decimal amount, Person person)
         {

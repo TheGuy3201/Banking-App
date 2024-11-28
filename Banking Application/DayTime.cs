@@ -9,7 +9,7 @@ namespace Banking_Application
     internal struct DayTime
     {
         //Data Members
-        private long Minutes = ;
+        private long Minutes;
         //Constructor
         public DayTime(long minutes)
         {
