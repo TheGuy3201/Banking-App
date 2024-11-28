@@ -23,7 +23,7 @@ namespace Banking_Application
 
         public override string ToString()
         {
-            return $"bs";
+            return $"{AccountNumber} {Amount} {(Amount > 0 ? "deposited" : "withdrawn")} by {Originator.Name} on {Time}";
         }
     }
 }

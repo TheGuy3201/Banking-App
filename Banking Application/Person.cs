@@ -27,8 +27,24 @@ namespace Banking_Application
             if(pass != password)
             {
                 IsAuthenticated = false;
-                //this.OnLogin();
+                OnLogin(this, new LoginEventArgs(this.Name, IsAuthenticated));
+                throw new AccountException(ExceptionType.PASSWORD_INCORRECT);
             }
+            else if(pass == password)
+            {
+                IsAuthenticated = true;
+                OnLogin(this, new LoginEventArgs(this.Name, IsAuthenticated));
+            }
+        }
+
+        public void Logout()
+        {
+            IsAuthenticated = false;
+        }
+
+        public override string ToString()
+        {
+            return $"Username: {Name} {(IsAuthenticated ? "is authenticated!" : "isn't authenticated.")}";
         }
     }
 }

@@ -6,24 +6,8 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    internal struct DayTime
-    {
-        //Data Members
-        private long Minutes;
-        //Constructor
-        public DayTime(long minutes)
-        {
-            Minutes = minutes; 
-        }
-        //Methods
-        public override string ToString()
-        {
-            return "";
-        }
-
-        /*
-         Litteraly the code that the prof gave, not going to paste (yet?), going to use as reference.
-        public struct DayTime
+    //Litteraly the code that the prof gave, not going to paste (yet?), going to use as reference.
+    public struct DayTime
     {
         private long minutes;
         public DayTime(long minutes) => this.minutes = minutes;
@@ -46,8 +30,5 @@ namespace Banking_Application
 
             return $"{years+2023}/{months+1}/{days+1} {hours:D2}:{mins:D2}";
         }
-    }
-}
-         */
     }
 }
