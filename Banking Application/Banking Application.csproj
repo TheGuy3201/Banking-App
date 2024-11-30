@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountException.cs" />
+    <Compile Include="Bank.cs" />
     <Compile Include="DayTime.cs" />
     <Compile Include="enums.cs" />
     <Compile Include="ITransaction.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="LoginEventArgs.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
