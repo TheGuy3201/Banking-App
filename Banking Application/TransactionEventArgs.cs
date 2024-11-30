@@ -8,6 +8,6 @@ namespace Banking_Application
 {
     /*class TransactionEventArgs : LoginEventArgs
     {
-        public double
+        public double pp poopoo
     }*/
 }
