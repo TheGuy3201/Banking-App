@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Banking_Application
 {
     //Litteraly the code that the prof gave, not going to paste (yet?), going to use as reference.
+    //Update, wow- someone litteraly pasted it hehe
     public struct DayTime
     {
         private long minutes;
