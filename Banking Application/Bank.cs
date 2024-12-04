@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
+using Microsoft.Win32;
+using System.Xml.Linq;
+using System.Security.Principal;
 
 namespace Banking_Application
 {
@@ -14,18 +19,18 @@ namespace Banking_Application
         static Bank()
         {
             //Copy and pasted code from proffesor
-            /* //initialize the USERS collection
-               AddPerson("Narendra", "1234-5678");    //0
-               AddPerson("Ilia", "2345-6789");        //1
-               AddPerson("Mehrdad", "3456-7890");     //2
-               AddPerson("Vinay", "4567-8901");       //3
-               AddPerson("Arben", "5678-9012");       //4
-               AddPerson("Patrick", "6789-0123");     //5
-               AddPerson("Yin", "7890-1234");         //6
-               AddPerson("Hao", "8901-2345");         //7
-               AddPerson("Jake", "9012-3456");        //8
-               AddPerson("Mayy", "1224-5678");        //9
-               AddPerson("Nicoletta", "2344-6789");   //10
+             //initialize the USERS collection
+               AddUser("Narendra", "1234-5678");    //0
+               AddUser("Ilia", "2345-6789");        //1
+               AddUser("Mehrdad", "3456-7890");     //2
+               AddUser("Vinay", "4567-8901");       //3
+               AddUser("Arben", "5678-9012");       //4
+               AddUser("Patrick", "6789-0123");     //5
+               AddUser("Yin", "7890-1234");         //6
+               AddUser("Hao", "8901-2345");         //7
+               AddUser("Jake", "9012-3456");        //8
+               AddUser("Mayy", "1224-5678");        //9
+               AddUser("Nicoletta", "2344-6789");   //10
 
 
                //initialize the ACCOUNTS collection
@@ -68,39 +73,59 @@ namespace Banking_Application
                AddUserToAccount(number, "Nicoletta");
 
                number = "VS-100006";
-               AddUserToAccount(number, "Ilia");
                AddUserToAccount(number, "Vinay");
-
                number = "SV-100007";
                AddUserToAccount(number, "Patrick");
                AddUserToAccount(number, "Hao");
 
-           }
-           public static void SaveAccounts(string filename)
-           {
-
-           }
-           public static void SaveUsers(string filename) 
-           {
-
-           }
-           public static Person GetUser(string name) 
-           {
-
-           }
-           public static Account GetAccount(string number)
-           {
-
-           }
-           public static void AddUser(string name, string sin) 
-           {
-
-           }
-           public static void AddAccount(string name) { }
-
-           public static void AddUSerToAccount(string name) { }
-
-           */
         }
+        public static void SaveAccounts(string filename)
+        {
+         string savedAccount = JsonSerializer.Serialize(ACCOUNTS, new JsonSerializerOptions {});
+         File.WriteAllText(filename, savedAccount);
+        }
+        public static void SaveUsers(string filename) 
+        {
+         string savedUser = JsonSerializer.Serialize(USERS, new JsonSerializerOptions {});
+         File.WriteAllText(filename, savedUser);
+        }
+        public static Person GetUser(string name) 
+        {
+         if (!USERS.TryGetValue(name, out Person user))
+             throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
+         return user;
+       
+        }
+        public static Account GetAccount(string number)
+        {
+         if (!ACCOUNTS.TryGetValue(number, out Account account))
+             throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
+         return account;
+        }
+        public static void AddUser(string name, string sin) 
+        {
+            Person user = new Person(name, sin);
+            user.OnLogin += Logger.LoginHandler;
+            USERS.Add(name, user);
+        }
+        public static void AddAccount(Account account) 
+        {
+            account.OnTransaction += Logger.TransactionHandler;
+            ACCOUNTS.Add(account.Number, account);
+        }
+
+        public static void AddUserToAccount(string number string name) 
+        {
+            if (!ACCOUNTS.TryGetValue(number, out var account))
+                throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
+
+            if (!USERS.TryGetValue(name, out var user))
+                throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
+
+            account.AddUser(user);
+        }
+
+        
+       
     }
 }
