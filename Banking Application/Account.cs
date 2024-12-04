@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    internal abstract class Account
+    abstract class Account
     {
         private static int LAST_NUMBER = 100_000;
         protected readonly List<Person> users = new List<Person>();
@@ -32,16 +32,34 @@ namespace Banking_Application
             transactions.Add(new Transaction(Number, amount, person, Utils.Now));
             OnTransaction(this, new EventArgs());
         }
+
+        public void AddUser(Person person)
+        {
+            users.Add(person);
+        }
+
+        public bool IsUser(string name)
+        {
+            foreach (Person p in users) 
+            {
+                if (name == p.Name)
+                { 
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public abstract void PrepareMonthlyReport();
 
-        protected virtual void OnTransactionOccur(object sender, EventArgs args)
+        public virtual void OnTransactionOccur(object sender, EventArgs e)
         {
-            OnTransaction?.Invoke(sender, args);
+            OnTransaction?.Invoke(sender, e);
         }
 
         public override string ToString()
         {
-            return $"{Number} {string.Join(", ", users)} {Balance:C}";
+            return $"{Number} {string.Join(", ", users)} {Balance:C} \n{string.Join("\n    ", transactions)}";
         }
     }
 }
