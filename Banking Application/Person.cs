@@ -24,13 +24,13 @@ namespace Banking_Application
 
         public void Login(string pass)
         {
-            if(pass.Equals(password))
+            if(!(pass.Equals(password)))
             {
                 IsAuthenticated = false;
                 OnLogin(this, new LoginEventArgs(Name, false));
                 throw new AccountException(ExceptionType.PASSWORD_INCORRECT);
             }
-            else if(pass == password)
+            if(pass == password)
             {
                 IsAuthenticated = true;
                 OnLogin(this, new LoginEventArgs(Name, true));

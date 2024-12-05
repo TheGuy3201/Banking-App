@@ -59,7 +59,7 @@ namespace Banking_Application
 
         public override string ToString() 
         { 
-            return $"{Number} {users.Person.Name} {Balance:C} \n{string.Join("\n    ", transactions)}";
+            return $"{Number} {string.Join(", ",users)} {Balance:C} \n{string.Join("\n    ", transactions)}";
         }
     }
 }
