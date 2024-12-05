@@ -97,45 +97,51 @@ namespace TestHarness
             b.Withdraw(111.11m, p7);
             Console.WriteLine(b);
             Console.WriteLine("\n\nExceptions:");
+            
             //The following will cause exception
             try
             {
                 p8.Login("911"); //incorrect password
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 p3.Logout();
                 a.DoPurchase(12.5m, p3); //exception user is not logged in
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 a.DoPurchase(12.5m, p0); //user is not associated with this account
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
 
-
             try
             {
                 a.DoPurchase(5825, p4); //credit limit exceeded
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 c.Withdraw(1500, p6); //no overdraft
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 Bank.GetAccount("CK-100018"); //account does not exist
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 Bank.GetUser("Trudeau"); //user does not exist
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
+
             //show all transactions
             Console.WriteLine("\n\nAll transactions");
             foreach (var transaction in Bank.ACCOUNTS.Values)

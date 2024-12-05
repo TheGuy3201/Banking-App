@@ -19,7 +19,7 @@ namespace Banking_Application
         {
             Name = name;
             Sin = sin;
-            password = sin.Substring(0,2);
+            password = sin.Substring(0,3);
         }
 
         public void Login(string pass)
@@ -44,7 +44,7 @@ namespace Banking_Application
 
         public override string ToString()
         {
-            return $"Username: {Name} ";
+            return $"{Name}";
         }
     }
 }
