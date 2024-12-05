@@ -88,8 +88,8 @@ namespace TestHarness
             a = Bank.GetAccount("VS-100006") as VisaAccount;
             a.DoPayment(700, p0);
             a.DoPurchase(20, p3);
-            a.DoPurchase(10, p3);
-            a.DoPurchase(15, p3);
+            a.DoPurchase(10, p1);
+            a.DoPurchase(15, p1);
             Console.WriteLine(a);
             b = Bank.GetAccount("SV-100007") as SavingAccount;
             b.Deposit(300, p3); //ok even though p3 is not a holder
