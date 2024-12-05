@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
 using System.IO;
-using Microsoft.Win32;
-using System.Xml.Linq;
-using System.Security.Principal;
-using System.Net.Security;
+using System.Web.Script.Serialization;
 
 namespace Banking_Application
 {
@@ -82,12 +75,12 @@ namespace Banking_Application
         }
         public static void SaveAccounts(string filename)
         {
-         string savedAccount = JsonSerializer.Serialize(ACCOUNTS, new JsonSerializerOptions {});
+         string savedAccount = new JavaScriptSerializer().Serialize(ACCOUNTS);
          File.WriteAllText(filename, savedAccount);
         }
         public static void SaveUsers(string filename) 
         {
-         string savedUser = JsonSerializer.Serialize(USERS, new JsonSerializerOptions {});
+         string savedUser = new JavaScriptSerializer().Serialize(USERS);
          File.WriteAllText(filename, savedUser);
         }
         public static Person GetUser(string name) 
