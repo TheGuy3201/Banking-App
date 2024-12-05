@@ -39,6 +39,7 @@ namespace TestHarness
             p4.Login("567"); p5.Login("678");
             p6.Login("789"); p7.Login("890");
             p10.Login("234"); p8.Login("901");
+
             //a visa account
             VisaAccount a = Bank.GetAccount("VS-100000") as VisaAccount;
             a.DoPayment(1500, p0);

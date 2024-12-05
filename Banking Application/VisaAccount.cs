@@ -12,7 +12,7 @@ namespace Banking_Application
         private static decimal INTEREST_RATE = 0.1995m;
 
         public VisaAccount(decimal balance = 0, decimal creditLimit = 1200)
-            : base("VS- ", balance)
+            : base("VS-", balance)
         { }   
 
         public void DoPayment(decimal amount, Person person)

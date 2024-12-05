@@ -91,16 +91,20 @@ namespace Banking_Application
             {  return user; }
             else
             { throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST); }
-       
+
         }
+
         public static Account GetAccount(string number)
         {
             if (ACCOUNTS.TryGetValue(number, out Account account))
-            { return account; }
+            {
+                Console.WriteLine(ACCOUNTS.TryGetValue(number, out Account acc));
+                return account; }
             else
             { throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST); }
 
         }
+
         public static void AddUser(string name, string sin) 
         {
             Person user = new Person(name, sin);
@@ -115,16 +119,13 @@ namespace Banking_Application
 
         public static void AddUserToAccount(string number, string name) 
         {
-            if (ACCOUNTS.TryGetValue(number, out var account))
+            if (ACCOUNTS.TryGetValue(number, out Account account))
                 //throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
 
-            if (USERS.TryGetValue(name, out var user))
+            if (USERS.TryGetValue(name, out Person user))
                 //throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
 
             account.AddUser(user);
         }
-
-        
-       
     }
 }
