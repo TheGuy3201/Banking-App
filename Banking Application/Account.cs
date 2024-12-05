@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    abstract class Account
+    public abstract class Account
     {
         private static int LAST_NUMBER = 100_000;
         protected readonly List<Person> users = new List<Person>();
@@ -57,9 +57,9 @@ namespace Banking_Application
             OnTransaction?.Invoke(sender, e);
         }
 
-        public override string ToString()
-        {
-            return $"{Number} {string.Join(", ", users)} {Balance:C} \n{string.Join("\n    ", transactions)}";
+        public override string ToString() 
+        { 
+            return $"{Number} {users.Person.Name} {Balance:C} \n{string.Join("\n    ", transactions)}";
         }
     }
 }

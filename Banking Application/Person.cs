@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    class Person
+    public class Person
     {
         private string password;
         public event EventHandler <LoginEventArgs> OnLogin;
@@ -24,16 +24,16 @@ namespace Banking_Application
 
         public void Login(string pass)
         {
-            if(pass != password)
+            if(pass.Equals(password))
             {
                 IsAuthenticated = false;
-                OnLogin(this, new LoginEventArgs(this.Name, IsAuthenticated));
+                OnLogin(this, new LoginEventArgs(Name, false));
                 throw new AccountException(ExceptionType.PASSWORD_INCORRECT);
             }
             else if(pass == password)
             {
                 IsAuthenticated = true;
-                OnLogin(this, new LoginEventArgs(this.Name, IsAuthenticated));
+                OnLogin(this, new LoginEventArgs(Name, true));
             }
         }
 
@@ -44,7 +44,7 @@ namespace Banking_Application
 
         public override string ToString()
         {
-            return $"Username: {Name} {(IsAuthenticated ? "is authenticated!" : "isn't authenticated.")}";
+            return $"Username: {Name} ";
         }
     }
 }

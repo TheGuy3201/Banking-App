@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    class LoginEventArgs : EventArgs
+    public class LoginEventArgs : EventArgs
     {
         //Properties
         public string PersonName { get; }

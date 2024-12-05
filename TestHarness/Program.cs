@@ -8,11 +8,11 @@ using Banking_Application;
 
 namespace TestHarness
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\nAll acounts:");
+            Console.WriteLine("\nAll accounts:");
             foreach (var acc in Bank.ACCOUNTS)
             {
                 Console.WriteLine(acc);
@@ -149,7 +149,7 @@ namespace TestHarness
                 account.PrepareMonthlyReport(); //all transactions are cleared, balance changes
                 Console.WriteLine(account);
             }
-            Logger.ShowLoginEvents();
+            Logger.ShowLoginEvents("loginDetails.json");
             Logger.ShowTransactionEvents();
         }
     }

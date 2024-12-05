@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Banking_Application
 {
-    static class Logger
+    public static class Logger
     {
         private static List<string> loginEvents = new List<string>();
         private static List<string> transactionEvents = new List<string>();
@@ -32,6 +32,7 @@ namespace Banking_Application
                 transactionEvents.Add(logEntry);
             }
         }
+        //Writes to a file using StreamWriter function
         public static void ShowLoginEvents(string filename)
         {
             using (StreamWriter writer = new StreamWriter(filename))

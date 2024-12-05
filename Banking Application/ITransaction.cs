@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Banking_Application
 {
     
-    interface ITransaction //if I make a class its different (replace interface with class :moyai:
+    public interface ITransaction //if I make a class its different (replace interface with class :moyai:
     {
         void Withdraw(decimal amount, Person person);
         void Deposit(decimal amount, Person person);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    class VisaAccount : Account, ITransaction
+    public class VisaAccount : Account, ITransaction
     {
         private decimal creditLimit;
         private static decimal INTEREST_RATE = 0.1995m;

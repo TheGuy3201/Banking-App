@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    struct Transaction
+    public struct Transaction
     {
         public string AccountNumber { get; }
         public decimal Amount { get; }

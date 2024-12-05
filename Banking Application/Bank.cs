@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Web.Script.Serialization;
 
 namespace Banking_Application
 {
-    static class Bank
+    public static class Bank
     {
         public static readonly Dictionary<string, Account> ACCOUNTS = new Dictionary<string, Account>();
         public static readonly Dictionary<string, Person> USERS = new Dictionary<string, Person>();
@@ -85,16 +86,19 @@ namespace Banking_Application
         }
         public static Person GetUser(string name) 
         {
-         if (!USERS.TryGetValue(name, out Person user))
-             throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
-         return user;
+            if (USERS.TryGetValue(name, out Person user))
+            {  return user; }
+            else
+            { throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST); }
        
         }
         public static Account GetAccount(string number)
         {
-         if (!ACCOUNTS.TryGetValue(number, out Account account))
-             throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
-         return account;
+            if (ACCOUNTS.TryGetValue(number, out Account account))
+            { return account; }
+            else
+            { throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST); }
+
         }
         public static void AddUser(string name, string sin) 
         {
@@ -110,11 +114,11 @@ namespace Banking_Application
 
         public static void AddUserToAccount(string number, string name) 
         {
-            if (!ACCOUNTS.TryGetValue(number, out var account))
-                throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
+            if (ACCOUNTS.TryGetValue(number, out var account))
+                //throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
 
-            if (!USERS.TryGetValue(name, out var user))
-                throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
+            if (USERS.TryGetValue(name, out var user))
+                //throw new AccountException(ExceptionType.USER_DOES_NOT_EXIST);
 
             account.AddUser(user);
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    class SavingAccount : Account, ITransaction
+    public class SavingAccount : Account, ITransaction
     {
         private const decimal COST_PER_TRANSACTION = 0.5m;
         private const decimal INTEREST_RATE = 0.015m;

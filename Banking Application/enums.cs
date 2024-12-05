@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Banking_Application
 {
-    //Likely for future exceptions, fuck no
-    enum ExceptionType {
+    //Likely for future exceptions
+    public enum ExceptionType {
         ACCOUNT_DOES_NOT_EXIST,
         CREDIT_LIMIT_HAS_BEEN_EXCEEDED,
         NAME_NOT_ASSOCIATED_WITH_ACCOUNT,
@@ -17,7 +17,7 @@ namespace Banking_Application
         USER_NOT_LOGGED_IN
     }
 
-    enum AccountType {
+    public enum AccountType {
         Checking,
         Saving,
         Visa,
