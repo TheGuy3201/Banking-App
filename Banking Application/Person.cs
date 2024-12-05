@@ -9,7 +9,7 @@ namespace Banking_Application
     class Person
     {
         private string password;
-        public event EventHandler OnLogin;
+        public event EventHandler <LoginEventArgs> OnLogin;
 
         public string Sin { get; }
         public string Name { get; }

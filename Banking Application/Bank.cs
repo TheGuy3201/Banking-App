@@ -8,6 +8,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Xml.Linq;
 using System.Security.Principal;
+using System.Net.Security;
 
 namespace Banking_Application
 {
@@ -114,7 +115,7 @@ namespace Banking_Application
             ACCOUNTS.Add(account.Number, account);
         }
 
-        public static void AddUserToAccount(string number string name) 
+        public static void AddUserToAccount(string number, string name) 
         {
             if (!ACCOUNTS.TryGetValue(number, out var account))
                 throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST);
