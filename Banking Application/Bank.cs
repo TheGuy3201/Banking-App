@@ -97,9 +97,7 @@ namespace Banking_Application
         public static Account GetAccount(string number)
         {
             if (ACCOUNTS.TryGetValue(number, out Account account))
-            {
-                Console.WriteLine(ACCOUNTS.TryGetValue(number, out Account acc));
-                return account; }
+            { return account; }
             else
             { throw new AccountException(ExceptionType.ACCOUNT_DOES_NOT_EXIST); }
 
